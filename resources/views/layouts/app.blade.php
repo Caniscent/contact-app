@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100">
-    @if(!route('login'))
+    @if(!Route::is('login','register'))
     @include('layouts.navbar')
 
     @include('layouts.sidebar')

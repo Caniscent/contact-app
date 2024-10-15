@@ -3,16 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use Faker\Factory as Faker;
 
+
 Route::get('/', function () {
     $contacts = [];
     $faker = Faker::create();
-    for ($i = 1; $i <= 100; $i++) {
+    for ($i = 1; $i <= 20; $i++) {
         $contacts[] = [
             'name' => $faker->name,
             'email' => $faker->unique()->safeEmail,
-            'phone' => $faker->phoneNumber
+            'phone' => $faker->phoneNumber,
+            'datetime' => $faker->dateTimeBetween('-10 years', 'now'),
         ];
     };
+
+    $contacts = collect($contacts)->sortBy('name')->values()->all(); 
     return view('pages.dashboard.index', ['contacts' => $contacts]);
 });
 
