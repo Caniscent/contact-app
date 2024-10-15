@@ -16,6 +16,14 @@ Route::get('/', function () {
     return view('pages.dashboard.index', ['contacts' => $contacts]);
 });
 
+Route::get('/login', function(){
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function(){
+    return view('auth.register');
+})->name('register');
+
 Route::get('/user', function () {
     return view('pages.user.index');
-});
+})->name('user');

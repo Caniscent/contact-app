@@ -7,9 +7,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100">
+    @if(!route('login'))
     @include('layouts.navbar')
 
     @include('layouts.sidebar')
+    @endif
 
     <main class="flex-1 p-4">
         @yield('content')
