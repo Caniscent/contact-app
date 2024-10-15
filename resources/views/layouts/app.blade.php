@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    @include('layouts.nav')
+<body class="bg-gray-100">
+    @include('layouts.navbar')
 
-    @yield('content')
+    @include('layouts.sidebar')
 
-    @include('layouts.side')
+    <main class="flex-1 p-4">
+        @yield('content')
+    </main>
+
 </body>
 </html>
