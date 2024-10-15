@@ -43,32 +43,40 @@
                                         <tr>
                                             <th scope="col"
                                                 class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                No
+                                            </th>
+                                            <th scope="col"
+                                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Nama
                                             </th>
                                             <th scope="col"
                                                 class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Email
                                             </th>
-                                            <th scope="col"
+                                                <th scope="col"
                                                 class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 No. HP
                                             </th>
                                         </tr>
                                     </thead>
+                                    @foreach ($contacts as $contact)
                                     <tbody class="bg-white">
                                         <tr>
                                             <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                Payment from <span class="font-semibold">Bonnie
-                                                    Green</span>
+                                                {{$loop->iteration}}
+                                            </td>
+                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                                {{$contact['name']}}
                                             </td>
                                             <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                Apr 23 ,2021
+                                                {{$contact['email']}}
                                             </td>
                                             <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                $2300
+                                                {{$contact['phone']}}
                                             </td>
                                         </tr>
                                     </tbody>
+                                @endforeach
                                 </table>
                             </div>
                         </div>
