@@ -6,101 +6,29 @@
 
     <div class="pt-6 px-4">
         <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
-            <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex-shrink-0">
-                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">$45,385</span>
-                        <h3 class="text-base font-normal text-gray-500">Sales this week</h3>
-                    </div>
-                    <div class="flex items-center justify-end flex-1 text-green-500 text-base font-bold">
-                        12.5%
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div id="main-chart"></div>
-            </div>
-            <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
-                <div class="mb-4 flex items-center justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Contact App</h3>
-                        <span class="text-base font-normal text-gray-500">Ini adalah contact app</span>
-                    </div>
-                    <div class="flex-shrink-0">
-                        <a href="#" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">View
-                            all</a>
-                    </div>
-                </div>
-                <div class="flex flex-col mt-8">
-                    <div class="overflow-x-auto rounded-lg">
-                        <div class="align-middle inline-block min-w-full">
-                            <div class="shadow overflow-hidden sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th scope="col"
-                                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                No
-                                            </th>
-                                            <th scope="col"
-                                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Nama
-                                            </th>
-                                            <th scope="col"
-                                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Email
-                                            </th>
-                                                <th scope="col"
-                                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                No. HP
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                @foreach ($contacts as $contact)
-                                    <tbody class="bg-white">
-                                        <tr>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                {{$loop->iteration}}
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                                {{$contact['name']}}
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                                                {{$contact['email']}}
-                                            </td>
-                                            <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                                {{$contact['phone']}}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                @endforeach
-                                </table>
-                            </div>
+            @if(session()->has('user'))
+                <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex-shrink-0">
+                            <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">Selamat datang, {{$username}}!</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">2,340</span>
-                        <h3 class="text-base font-normal text-gray-500">New products this week</h3>
-                    </div>
-                    <div class="ml-5 w-0 flex items-center justify-end flex-1 text-green-500 text-base font-bold">
-                        14.6%
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+            @else
+                <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">Silahkan login dulu</span>
+                        </div>
+                        <div class="ml-5 w-0 flex items-center justify-end flex-1 text-blue-500 text-base font-bold">
+                            <a href="{{route('login')}}">Login</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
+
+        </div>
+        <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
@@ -163,7 +91,7 @@
                                     </p>
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900">
-                                    {{ \Carbon\Carbon::parse($contact['datetime'])->diffForHumans() }}
+                                    {{ \Carbon\Carbon::parse($contact['datetime'])->format('d M y') }}
                                 </div>
                             </div>
                         </li>
@@ -171,7 +99,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+            <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 my-4">
                 <h3 class="text-xl leading-none font-bold text-gray-900 mb-10">Acquisition Overview
                 </h3>
                 <div class="block w-full overflow-x-auto">
