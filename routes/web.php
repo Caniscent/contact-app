@@ -16,11 +16,10 @@ Route::get('/', function (Request $request) {
 
     $contacts = [];
     $faker = Faker::create();
-    for ($i = 1; $i <= 355; $i++) {
+    for ($i = 1; $i <= 50; $i++) {
         $contacts[] = [
             'name' => $faker->name,
             'email' => $faker->unique()->safeEmail,
-            'phone' => $faker->phoneNumber,
             'datetime' => $faker->dateTimeBetween('-10 years', 'now'),
         ];
     };
