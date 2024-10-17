@@ -4,7 +4,7 @@
 
 @section('content')
 @if(session()->has('user'))
-<div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+<div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 mt-16">
     <div class="mb-4 flex items-center justify-between">
         <div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Contact List</h3>
@@ -65,6 +65,6 @@
     </div>
 </div>
 @else
-    <p>minimal login</p>
+    <p class="mt-16">minimal login</p>
 @endif
 @endsection

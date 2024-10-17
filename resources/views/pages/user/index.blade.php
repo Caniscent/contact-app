@@ -3,5 +3,9 @@
 @section('title', 'User | Contact App')
 
 @section('content')
-    <h1>Ini page user</h1>
+    @if(session()->has('user'))
+        <h1 class="mt-16">Ini page user</h1>
+    @else
+        <p class="mt-16">minimal login</p>
+    @endif
 @endsection

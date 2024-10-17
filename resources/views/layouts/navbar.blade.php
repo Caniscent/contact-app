@@ -1,4 +1,4 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+<nav class="fixed left-0 right-0 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse" title="Click to open sidebar" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
         <button>
