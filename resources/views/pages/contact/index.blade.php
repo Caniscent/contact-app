@@ -7,8 +7,8 @@
 <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 mt-16">
     <div class="mb-4 flex items-center justify-between">
         <div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Contact List</h3>
-            <span class="text-base font-normal text-gray-500">Ini adalah list contact</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">List Mahasiswa</h3>
+            <span class="text-base font-normal text-gray-500">Ini adalah list mahasiswa</span>
         </div>
         <div class="flex-shrink-0">
             <a href="#" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">View
@@ -28,7 +28,7 @@
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Nama
+                                    Nama Mahasiswa
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

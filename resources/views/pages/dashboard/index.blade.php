@@ -32,8 +32,8 @@
             <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">5,355</span>
-                        <h3 class="text-base font-normal text-gray-500">Visitors this week</h3>
+                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">355</span>
+                        <h3 class="text-base font-normal text-gray-500">Jumlah Mahasiswa Tahun 2024</h3>
                     </div>
                     <div class="ml-5 w-0 flex items-center justify-end flex-1 text-green-500 text-base font-bold">
                         32.9%
@@ -48,8 +48,8 @@
             <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">385</span>
-                        <h3 class="text-base font-normal text-gray-500">User signups this week</h3>
+                        <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">97</span>
+                        <h3 class="text-base font-normal text-gray-500">Jumlah Mahasiswa Yang Keluar(Lulus/DO) Tahun 2024</h3>
                     </div>
                     <div class="ml-5 w-0 flex items-center justify-end flex-1 text-red-500 text-base font-bold">
                         -2.7%
@@ -65,7 +65,7 @@
         <div class="grid grid-cols-1 2xl:grid-cols-2 xl:gap-4 my-4">
             <div class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-none text-gray-900">Latest Customers</h3>
+                    <h3 class="text-xl font-bold leading-none text-gray-900">Mahasiswa yang baru absen</h3>
                     <a href="#"
                         class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2">
                         View all
