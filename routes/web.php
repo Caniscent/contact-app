@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -13,18 +15,7 @@ Route::post('/dummy-login', function(Request $request){
 
 Route::get('/', function (Request $request) {
     $username = $request->session()->get('user');
-
-    $contacts = [];
-    $faker = Faker::create();
-    for ($i = 1; $i <= 50; $i++) {
-        $contacts[] = [
-            'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'datetime' => $faker->dateTimeBetween('-10 years', 'now'),
-        ];
-    };
-
-    $contacts = collect($contacts)->sortBy('name')->values()->all();
+    $contacts = User::all();
     return view('pages.dashboard.index', ['contacts' => $contacts, 'username' => $username]);
 })->name('dashboard');
 

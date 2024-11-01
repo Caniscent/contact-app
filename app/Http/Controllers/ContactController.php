@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ContactController extends Controller
 {
@@ -11,7 +12,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        // $username = $request->session()->get('user');
+        $contacts = User::all();
+
+        return view('pages.dashboard.index', ['contacts' => $contacts]);
     }
 
     /**
