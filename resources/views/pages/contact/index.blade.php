@@ -11,8 +11,7 @@
             <span class="text-base font-normal text-gray-500">Ini adalah list mahasiswa</span>
         </div>
         <div class="flex-shrink-0">
-            <a href="#" class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg p-2">View
-                all</a>
+            <a href="{{route('contact.create')}}" class="bg-blue-500 text-sm font-medium text-white hover:bg-blue-700 rounded-lg p-2">Tambah Kontak Mahasiswa</a>
         </div>
     </div>
     <div class="flex flex-col mt-8">
@@ -34,9 +33,17 @@
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Email
                                 </th>
-                                    <th scope="col"
+                                <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     No. HP
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Alamat
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Aksi
                                 </th>
                             </tr>
                         </thead>
@@ -54,6 +61,13 @@
                                 </td>
                                 <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                                     {{$contact['phone']}}
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                    {{$contact['address']}}
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                    <a href="{{route('contact.edit', $contact->id)}}" class="bg-yellow-300 rounded-lg p-2 hover:bg-yellow-400">Update</a>
+                                    <a href="#" class="bg-red-500 rounded-lg p-2 hover:bg-red-600">Delete</a>
                                 </td>
                             </tr>
                         </tbody>

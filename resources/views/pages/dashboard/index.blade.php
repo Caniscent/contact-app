@@ -65,7 +65,7 @@
         <div class="grid grid-cols-1 2xl:grid-cols-2 xl:gap-4 my-4">
             <div class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-none text-gray-900">Mahasiswa yang baru absen</h3>
+                    <h3 class="text-xl font-bold leading-none text-gray-900">List mahasiswa baru</h3>
                     <a href="#"
                         class="text-sm font-medium text-cyan-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2">
                         View all

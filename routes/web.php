@@ -32,21 +32,13 @@ Route::post('/logout', function (Request $request) {
     return redirect('/login');
 })->name('logout');
 
-Route::get('/contact', function () {
-    $contacts = [];
-    $faker = Faker::create();
-    for ($i = 1; $i <= 355; $i++) {
-        $contacts[] = [
-            'name' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
-            'phone' => $faker->phoneNumber,
-            'datetime' => $faker->dateTimeBetween('-10 years', 'now'),
-        ];
-    };
-
-    $contacts = collect($contacts)->sortBy('name')->values()->all();
-    return view('pages.contact.index', ['contacts' => $contacts]);
-})->name('contact');
+Route::prefix('/contact')->name('contact.')->group(function(){
+    Route::get('/', [ContactController::class, 'index'])->name('index');
+    Route::get('/create', [ContactController::class, 'create'])->name('create');
+    Route::post('/store', [ContactController::class, 'store'])->name('store');
+    Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('edit');
+    Route::put('/update/{contact}', [ContactController::class, 'update'])->name('update');
+});
 
 Route::get('/user', function () {
     return view('pages.user.index');

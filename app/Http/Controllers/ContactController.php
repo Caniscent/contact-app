@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactModel;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Faker\Factory as Faker;
 
 class ContactController extends Controller
 {
@@ -13,9 +15,20 @@ class ContactController extends Controller
     public function index()
     {
         // $username = $request->session()->get('user');
-        $contacts = User::all();
+        // $contacts = [];
+        // $faker = Faker::create();
+        // for ($i = 1; $i <= 355; $i++) {
+        //     $contacts[] = [
+        //         'name' => $faker->name,
+        //         'email' => $faker->unique()->safeEmail,
+        //         'phone' => $faker->phoneNumber,
+        //         'datetime' => $faker->dateTimeBetween('-10 years', 'now'),
+        //     ];
+        // }
 
-        return view('pages.dashboard.index', ['contacts' => $contacts]);
+        // $contacts = collect($contacts)->sortBy('name')->values()->all();
+        $contacts = ContactModel::all();
+        return view('pages.contact.index', ['contacts' => $contacts]);
     }
 
     /**
@@ -23,7 +36,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.contact.create');
     }
 
     /**
@@ -31,7 +44,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ContactModel::create([
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "address" => $request->address,
+        ]);
+
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -45,9 +65,9 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(ContactModel $contact)
     {
-        //
+        return view('pages.contact.edit', compact('contact'));
     }
 
     /**
@@ -55,7 +75,14 @@ class ContactController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->update([
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "address" => $request->address,
+        ]);
+
+        return redirect()->route('contact.index');
     }
 
     /**
