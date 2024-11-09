@@ -44,6 +44,11 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'phone.max' => 'Nomor HP kurang dari batas karakter.',
+            'phone.max' => 'Nomor HP melebihi batas karakter.',
+        ]);
+
         ContactModel::create([
             "name" => $request->name,
             "email" => $request->email,
@@ -73,9 +78,19 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, ContactModel $contact)
     {
-        $request->update([
+        $request->validate([
+            'phone' => 'min:11|max:13',
+            'name' => 'required|string|min:3|max:255',
+            'email' => 'required|email||max:255',
+            'address' => 'nullable|string|min:10|max:255',
+        ], [
+            'phone.min' => 'Nomor HP kurang dari batas karakter.',
+            'phone.max' => 'Nomor HP melebihi batas karakter.',
+        ]);
+
+        $contact->update([
             "name" => $request->name,
             "email" => $request->email,
             "phone" => $request->phone,

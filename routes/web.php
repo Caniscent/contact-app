@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -14,23 +15,21 @@ Route::post('/dummy-login', function(Request $request){
 })->name('dummy-login');
 
 Route::get('/', function (Request $request) {
-    $username = $request->session()->get('user');
+    $username = Auth::all();
     $contacts = User::all();
     return view('pages.dashboard.index', ['contacts' => $contacts, 'username' => $username]);
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
+
 
 Route::get('/login', function(){
     return view('auth.login');
 })->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
 
-Route::get('/register', function(){
-    return view('auth.register');
-})->name('register');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store']);
 
-Route::post('/logout', function (Request $request) {
-    $request->session()->forget('user');
-    return redirect('/login');
-})->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('/contact')->name('contact.')->group(function(){
     Route::get('/', [ContactController::class, 'index'])->name('index');

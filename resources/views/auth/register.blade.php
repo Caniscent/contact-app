@@ -11,54 +11,39 @@
                 {{ __('Register') }}
             </h2>
 
-            <form method="POST" action="{{ route('dummy-login') }}" class="space-y-4">
+            <form method="POST" action="{{ route('register') }}" class="space-y-4">
                 @csrf
 
                 <!-- Nama -->
                 <div class="form-group">
                     <label for="name" class="block text-sm font-medium text-gray-900">{{ __('Nama') }}</label>
                     <input id="name" type="text" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                           name="name" value="{{ old('name') }}" placeholder="Masukkan nama anda" required autocomplete="name" autofocus>
+                           name="name" placeholder="Masukkan nama anda" required autocomplete="name" autofocus>
                 </div>
 
-                <!-- Usia -->
+                {{-- Username --}}
                 <div class="form-group">
-                    <label for="age" class="block text-sm font-medium text-gray-900">{{ __('Usia') }}</label>
-                    <input id="age" type="number" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 no-spinners"
-                           name="age" value="{{ old('age') }}" placeholder="Masukkan usia anda" required autocomplete="age">
-                </div>
-
-                <!-- Jenis Kelamin -->
-                <div class="form-group">
-                    <label for="gender" class="block text-sm font-medium text-gray-900">{{ __('Jenis Kelamin') }}</label>
-                    <select id="gender" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                            name="gender" required>
-                        <option value="" disabled selected>{{ __('Pilih jenis kelamin') }}</option>
-                        <option value="laki-laki" {{ old('gender') == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                        <option value="perempuan" {{ old('gender') == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
-                    </select>
-                </div>
-
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email" class="block text-sm font-medium text-gray-900">{{ __('Email') }}</label>
-                    <input id="email" type="email" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                           name="email" value="{{ old('email') }}" placeholder="Masukkan email anda" required autocomplete="email">
+                    <label for="username" class="block text-sm font-medium text-gray-900">{{ __('Username') }}</label>
+                    <input id="username" type="text" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                           name="username" placeholder="Masukkan nama anda" required autocomplete="username" autofocus>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password" class="block text-sm font-medium text-gray-900">{{ __('Password') }}</label>
                     <input id="password" type="password" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                           name="password" placeholder="Buat password dengan panjang minimal 8" required autocomplete="new-password">
+                           name="password" placeholder="Buat password dengan panjang minimal 6" required autocomplete="new-password">
+                    @error("password")
+                        <p class="text-red-600">{{$message}}</p>
+                    @enderror
                 </div>
 
                 <!-- Konfirmasi Password -->
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="password-confirm" class="block text-sm font-medium text-gray-900">{{ __('Konfirmasi Password') }}</label>
                     <input id="password-confirm" type="password" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                            name="password_confirmation" placeholder="Konfirmasi password anda" required autocomplete="new-password">
-                </div>
+                </div> --}}
 
                 <!-- Submit Button -->
                 <div class="form-group">
