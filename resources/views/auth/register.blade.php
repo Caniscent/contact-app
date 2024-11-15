@@ -28,6 +28,27 @@
                            name="username" placeholder="Masukkan nama anda" required autocomplete="username" autofocus>
                 </div>
 
+                {{-- Email --}}
+                <div class="form-group">
+                    <label for="email" class="block text-sm font-medium text-gray-900">{{ __('Email') }}</label>
+                    <input id="email" type="email" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                           name="email" placeholder="Masukkan email anda" required autocomplete="email" autofocus>
+                </div>
+
+                {{-- Phone --}}
+                <div class="form-group">
+                    <label for="phone" class="block text-sm font-medium text-gray-900">{{ __('Phone') }}</label>
+                    <input id="phone" type="number" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                           name="phone" placeholder="Masukkan nomor telepon anda" required autocomplete="phone" autofocus>
+                </div>
+
+                {{-- Address --}}
+                <div class="form-group">
+                    <label for="address" class="block text-sm font-medium text-gray-900">{{ __('Address') }}</label>
+                    <input id="address" type="text" class="input input-bordered w-full bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                           name="address" placeholder="Masukkan alamat anda" required autocomplete="address" autofocus>
+                </div>
+
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password" class="block text-sm font-medium text-gray-900">{{ __('Password') }}</label>

@@ -9,16 +9,8 @@ use Illuminate\Http\Request;
 use Faker\Factory as Faker;
 
 
-Route::post('/dummy-login', function(Request $request){
-    $request->session()->put('user',$request->name);
-    return redirect('/');
-})->name('dummy-login');
-
 Route::get('/', function (Request $request) {
-    $user = Auth::user();
-    $username = $user->username;
-    $contacts = User::all();
-    return view('pages.dashboard.index', ['contacts' => $contacts, 'user' => $user, 'username' => $username]);
+    return view('pages.dashboard.index');
 })->name('dashboard')->middleware('auth');
 
 
