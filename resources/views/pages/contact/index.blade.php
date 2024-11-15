@@ -3,7 +3,7 @@
 @section('title', 'Contact | Contact App')
 
 @section('content')
-@if(session()->has('user'))
+@auth
 <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 mt-16">
     <div class="mb-4 flex items-center justify-between">
         <div>
@@ -66,8 +66,12 @@
                                     {{$contact['address']}}
                                 </td>
                                 <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                    <a href="{{route('contact.edit', $contact->id)}}" class="bg-yellow-300 rounded-lg p-2 hover:bg-yellow-400">Update</a>
-                                    <a href="#" class="bg-red-500 rounded-lg p-2 hover:bg-red-600">Delete</a>
+                                    <a href="{{route('contact.edit', $contact->id)}}" class="bg-yellow-300 rounded-lg hover:bg-yellow-400 px-2 py-1">Update</a>
+                                    <form action="{{route('contact.delete', $contact->id)}}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="bg-red-500 rounded-lg hover:bg-red-600 px-2 py-1 mt-2">Delete<button>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
@@ -80,5 +84,5 @@
 </div>
 @else
     <p class="mt-16">minimal login</p>
-@endif
+@endauth
 @endsection

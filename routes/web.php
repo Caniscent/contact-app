@@ -15,16 +15,17 @@ Route::post('/dummy-login', function(Request $request){
 })->name('dummy-login');
 
 Route::get('/', function (Request $request) {
-    $username = Auth::all();
+    $user = Auth::user();
+    $username = $user->username;
     $contacts = User::all();
-    return view('pages.dashboard.index', ['contacts' => $contacts, 'username' => $username]);
+    return view('pages.dashboard.index', ['contacts' => $contacts, 'user' => $user, 'username' => $username]);
 })->name('dashboard')->middleware('auth');
 
 
 Route::get('/login', function(){
     return view('auth.login');
 })->name('login');
-Route::post('/login', [AuthController::class, 'authenticate']);
+Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);
@@ -37,6 +38,7 @@ Route::prefix('/contact')->name('contact.')->group(function(){
     Route::post('/store', [ContactController::class, 'store'])->name('store');
     Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('edit');
     Route::put('/update/{contact}', [ContactController::class, 'update'])->name('update');
+    Route::delete('/delete/{contact}', [ContactController::class, 'delete'])->name('delete');
 });
 
 Route::get('/user', function () {

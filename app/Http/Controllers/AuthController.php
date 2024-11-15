@@ -41,14 +41,14 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required', 'username'],
+            'username' => ['required'],
             'password' => ['required'],
         ]);
 
         if (Authorize::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/'); //intended: mengembalikan ke lokasi yang sebelumnya
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([

@@ -12,4 +12,8 @@ class Auth extends Authenticatable
 
     protected $tables = 'auths';
     protected $guarded = ['id'];
+
+    public function contact(){
+        return $this->hasOne('Contacts');
+    }
 }
